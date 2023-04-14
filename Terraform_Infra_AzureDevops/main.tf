@@ -1,11 +1,11 @@
 terraform {
-  backend "azurerm" {
+  # backend "azurerm" {
 
-    resource_group_name  = "backend"
-    storage_account_name = "oguzhanbackend"
-    container_name       = "aksterraformbackend"
-    key                  = "terraform.tfstate"
-  }
+  #   resource_group_name  = "backend"
+  #   storage_account_name = "oguzhanbackend"
+  #   container_name       = "aksterraformbackend"
+  #   key                  = "terraform.tfstate"
+  # }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
