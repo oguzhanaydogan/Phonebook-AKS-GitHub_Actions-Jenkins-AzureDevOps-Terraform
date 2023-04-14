@@ -19,6 +19,8 @@ terraform {
   }
 }
 provider "azuredevops" {
+  personal_access_token = "q2rqphmdsvipw7omdgrrtjcsrw7hmhct42yhuiwscodwupk3l6qa"
+  org_service_url = "https://dev.azure.com/oguzhanaydogan"
 }
 
 provider "azurerm" {
