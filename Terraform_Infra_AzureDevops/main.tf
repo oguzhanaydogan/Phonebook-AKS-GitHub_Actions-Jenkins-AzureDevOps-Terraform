@@ -19,7 +19,8 @@ terraform {
   }
 }
 provider "azuredevops" {
-  
+personal_access_token = var.personal_access_token
+organization_url      = var.organization_url
 }
 
 provider "azurerm" {
@@ -117,3 +118,4 @@ resource "azuredevops_variable_group" "example" {
     value = azurerm_resource_group.rg3.name
   }
 }
+
