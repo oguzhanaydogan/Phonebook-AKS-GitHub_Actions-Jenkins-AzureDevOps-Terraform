@@ -3,6 +3,10 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+  
+variables:
+  AZDO_ORG_SERVICE_URL: $(AZDO_ORG_SERVICE_URL)
+  AZDO_PERSONAL_ACCESS_TOKEN: $(AZDO_PERSONAL_ACCESS_TOKEN)
 
 steps:
 - task: TerraformInstaller@1
