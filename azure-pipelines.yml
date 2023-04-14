@@ -12,7 +12,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/Terraform_infra_AzureDevOps'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Terraform_Infra_AzureDevOps'
     backendServiceArm: 'Azure subscription 1(67882e92-6412-4fc5-b9ca-1030aa09d729)'
     backendAzureRmResourceGroupName: 'backend'
     backendAzureRmStorageAccountName: 'oguzhanbackend'
@@ -22,5 +22,5 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/Terraform_infra_AzureDevOps'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Terraform_Infra_AzureDevOps'
     environmentServiceNameAzureRM: 'Azure subscription 1(67882e92-6412-4fc5-b9ca-1030aa09d729)'
