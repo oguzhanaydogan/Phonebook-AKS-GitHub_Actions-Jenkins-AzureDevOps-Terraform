@@ -11,14 +11,20 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "3.51.0"
     }
+       azuredevops = {
+      source = "microsoft/azuredevops"
+      version = "0.4.0"
+    }
 
   }
+}
+provider "azuredevops" {
+  
 }
 
 provider "azurerm" {
   # Configuration options
   features {
-
   }
 }
 
@@ -87,3 +93,27 @@ resource "azurerm_lb_rule" "rule2" {
 
   backend_address_pool_ids = [data.azurerm_lb_backend_address_pool.backAP.id]
 }
+
+data "azuredevops_projects" "example" {
+  name  = "phonebook"
+}
+resource "azuredevops_variable_group" "example" {
+  project_id   = data.azuredevops_projects.example.id
+  name         = "Example Variable Group"
+  allow_access = true
+
+  variable {
+    name  = "NODERG"
+    value = azurerm_kubernetes_cluster.aks.node_resource_group
+  }
+
+  variable {
+    name         = "AKS_NAME"
+    value = azurerm_kubernetes_cluster.aks.name
+  }
+}
+
+  variable {
+    name         = "AKSRG_NAME"
+    value = azurerm_resource_group.rg3.name
+  }
