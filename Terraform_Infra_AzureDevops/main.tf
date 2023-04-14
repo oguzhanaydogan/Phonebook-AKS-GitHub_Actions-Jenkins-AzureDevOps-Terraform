@@ -111,9 +111,9 @@ resource "azuredevops_variable_group" "example" {
     name         = "AKS_NAME"
     value = azurerm_kubernetes_cluster.aks.name
   }
-}
 
   variable {
     name         = "AKSRG_NAME"
     value = azurerm_resource_group.rg3.name
   }
+}
