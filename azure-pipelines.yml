@@ -1,0 +1,26 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Terraform_infra_AzureDevOps'
+    backendServiceArm: 'Azure subscription 1(67882e92-6412-4fc5-b9ca-1030aa09d729)'
+    backendAzureRmResourceGroupName: 'backend'
+    backendAzureRmStorageAccountName: 'oguzhanbackend'
+    backendAzureRmContainerName: 'aksterraformbackend'
+    backendAzureRmKey: 'terraform.tfstate'
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Terraform_infra_AzureDevOps'
+    environmentServiceNameAzureRM: 'Azure subscription 1(67882e92-6412-4fc5-b9ca-1030aa09d729)'
