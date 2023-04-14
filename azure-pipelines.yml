@@ -21,9 +21,6 @@ steps:
     backendAzureRmContainerName: 'aksterraformbackend'
     backendAzureRmKey: 'terraform.tfstate'
 - task: TerraformTaskV4@4
-  env:
-      AZDO_ORG_SERVICE_URL: $(ORG_SERVICE_URL)
-      AZDO_PERSONAL_ACCESS_TOKEN: $(PERSONAL_ACCESS_TOKEN)
   inputs:
     provider: 'azurerm'
     command: 'apply'
